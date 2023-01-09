@@ -7,11 +7,13 @@ function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isSubmit, setIsSubmit] = useState(false);
+  const [isVaildEmail, setIsVaildEmail] = useState(false);
+  const [isVaillPassword, setIsVaildPassword] = useState(false);
   const navigate = useNavigate();
   const { mutate } = useLoginMutation(navigate);
 
   const onClickLoginButton = () => {
-    if (!isSubmit) {
+    if (!isSubmit && isVaildEmail && isVaillPassword) {
       setIsSubmit(true);
       mutate({ email, password });
       setIsSubmit(false);
@@ -19,11 +21,17 @@ function Login() {
   };
 
   const onChangeEmail = (e) => {
-    setEmail(e.target.value);
+    const { value } = e.target;
+    if (value.includes('@') && value.includes('.')) setIsVaildEmail(true);
+    else setIsVaildEmail(false);
+    setEmail(value);
   };
 
   const onChangePassword = (e) => {
-    setPassword(e.target.value);
+    const { value } = e.target;
+    if (value.length >= 8) setIsVaildPassword(true);
+    else setIsVaildPassword(false);
+    setPassword(value);
   };
 
   return (
@@ -43,7 +51,13 @@ function Login() {
             onChange={onChangePassword}
           />
         </LoginForm>
-        <LoginButton type="button" onClick={onClickLoginButton}>
+        <LoginButton
+          type="button"
+          disabled={!(isVaildEmail && isVaillPassword)}
+          onClick={onClickLoginButton}
+          isVaildEmail={isVaildEmail}
+          isVaillPassword={isVaillPassword}
+        >
           로그인
         </LoginButton>
       </ContentContainer>
@@ -74,4 +88,11 @@ const EmailInput = styled.input``;
 
 const PasswordInput = styled.input``;
 
-const LoginButton = styled.button``;
+const LoginButton = styled.button`
+  width: 350px;
+  height: 50px;
+  background-color: ${(props) =>
+    props.isVaildEmail && props.isVaillPassword ? 'green' : 'gray'};
+  cursor: ${(props) =>
+    props.isVaildEmail && props.isVaillPassword ? 'pointer' : 'default'};
+`;
