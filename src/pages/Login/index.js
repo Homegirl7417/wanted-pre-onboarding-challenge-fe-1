@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 import useLoginMutation from '../../api/Auth/postLogin';
+import AuthInputForm from '../../components/authInputForm';
 
 function Login() {
   const [email, setEmail] = useState('');
@@ -12,12 +12,16 @@ function Login() {
   const navigate = useNavigate();
   const { mutate } = useLoginMutation(navigate);
 
-  const onClickLoginButton = () => {
+  const onClickButton = () => {
     if (!isSubmit && isVaildEmail && isVaillPassword) {
       setIsSubmit(true);
       mutate({ email, password });
       setIsSubmit(false);
     }
+  };
+
+  const onClickSignUpButton = () => {
+    navigate('/auth/signup');
   };
 
   const onChangeEmail = (e) => {
@@ -35,64 +39,20 @@ function Login() {
   };
 
   return (
-    <Container>
-      <LogoContainer>안경이의 투두리스트</LogoContainer>
-      <ContentContainer>
-        <Title>로그인</Title>
-        <LoginForm>
-          <EmailInput
-            type="text"
-            placeholder="이메일"
-            onChange={onChangeEmail}
-          />
-          <PasswordInput
-            type="password"
-            placeholder="비밀번호"
-            onChange={onChangePassword}
-          />
-        </LoginForm>
-        <LoginButton
-          type="button"
-          disabled={!(isVaildEmail && isVaillPassword)}
-          onClick={onClickLoginButton}
-          isVaildEmail={isVaildEmail}
-          isVaillPassword={isVaillPassword}
-        >
-          로그인
-        </LoginButton>
-      </ContentContainer>
-    </Container>
+    <AuthInputForm
+      title="로그인"
+      emailPlaceholder="이메일"
+      passwordPlaceholder="비밀번호"
+      isVaildEmail={isVaildEmail}
+      isVaillPassword={isVaillPassword}
+      buttonText="로그인"
+      isDisplaySignUp
+      onChangeEmail={onChangeEmail}
+      onChangePassword={onChangePassword}
+      onClickButton={onClickButton}
+      onClickSignUpButton={onClickSignUpButton}
+    />
   );
 }
 
 export default Login;
-
-const Container = styled.div`
-  width: 500px;
-  height: 800px;
-`;
-
-const LogoContainer = styled.div`
-  padding: 20px;
-`;
-
-const ContentContainer = styled.div`
-  padding: 20px;
-`;
-
-const Title = styled.div``;
-
-const LoginForm = styled.div``;
-
-const EmailInput = styled.input``;
-
-const PasswordInput = styled.input``;
-
-const LoginButton = styled.button`
-  width: 350px;
-  height: 50px;
-  background-color: ${(props) =>
-    props.isVaildEmail && props.isVaillPassword ? 'green' : 'gray'};
-  cursor: ${(props) =>
-    props.isVaildEmail && props.isVaillPassword ? 'pointer' : 'default'};
-`;
