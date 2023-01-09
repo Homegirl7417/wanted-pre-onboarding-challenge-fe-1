@@ -1,70 +1,85 @@
-# Getting Started with Create React App
+#  wanted-pre-onboarding-challenge-fe-1
+Javascript와 React를 활용해 만든 투두리스트 서비스입니다.
+React-Query를 활용한 로그인, 회원가입, 투두 리스트 관리 기능을 제공합니다.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+- 백엔드는 'wanted-pre-onboarding-challenge-fe-1-api' 레파지토리에 있습니다. 백엔드 서버를 작동시킨 후 실행해주세요. 
+(https://github.com/Homegirl7417/wanted-pre-onboarding-challenge-fe-1-api)
+- Assignment1,2 중 현재 Assignment1 기능 완성 후 디자인 작업 중입니다.
 
-In the project directory, you can run:
 
-### `npm start`
+<br/>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 🚩 목차
+- 설치 및 세팅
+- 브랜치
+- 개발 사양
+- 기술 스택
+- 폴더 구조
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<br/>
 
-### `npm test`
+## ⚙️ 설치 및 세팅
+### 1. npm 설치
+``` shell
+$ npm install
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 2. Extension 설치
+- ESLint
+- Prettier - Code formatter
+- Style Guide: Airbnb
 
-### `npm run build`
+### 3. Scripts
+| 명령어  | 기능  |
+|---|---|
+| ```$ npm run start``` | 프로젝트 구동 |
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 4. 테스트 계정
+- Email: user1@naver.com
+- Password: tester1234
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<br/>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 📷 스크린샷
+추후 추가
 
-### `npm run eject`
+## 🌲 브랜치
+- [master](https://github.com/Homegirl7417/wanted-pre-onboarding-challenge-fe-1)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+<br/>
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 📚 개발 사양
+- 디자인: PC 최적화
+- 표준 브라우저: Chrome
+- SPA: Client Side Rendering
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+<br/>
 
-## Learn More
+## ⚒ 기술 스택
+<img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white"/> <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black"/> <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAF"/>
+<br/>
+<img src="https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white"/>
+<img src="https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white"/>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<br/>
+<br/>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 🗂 폴더 구조
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+``` shell
+├── README.md
+├── .eslintrc.json
+├── .prettierrc
+├── .gitignore
+├── package.json
+├── package-lock.json
+├── public
+└── src
+    ├── api
+    ├── components
+    ├── pages
+    ├── App.js
+    ├── index.js
+    ├── constant.js
