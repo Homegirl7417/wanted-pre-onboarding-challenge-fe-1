@@ -1,5 +1,6 @@
 import { useMutation } from 'react-query';
 import api from '..';
+import { loginTokenKey } from '../../constant';
 
 const fetchLoginUser = (data) =>
   api.post('/users/login', {
@@ -10,7 +11,7 @@ const fetchLoginUser = (data) =>
 const useLoginMutation = (navigate) =>
   useMutation(fetchLoginUser, {
     onSuccess: (json) => {
-      localStorage.setItem('jwt_token', JSON.stringify(json.data.token));
+      localStorage.setItem(loginTokenKey, json.data.token);
       navigate('/');
     },
     onError: (error) => {

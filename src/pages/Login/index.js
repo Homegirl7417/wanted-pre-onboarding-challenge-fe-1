@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import useLoginMutation from '../../api/Auth/postLogin';
 import AuthInputForm from '../../components/authInputForm';
+import { loginTokenKey } from '../../constant';
 
 function Login() {
   const [email, setEmail] = useState('');
@@ -37,6 +38,13 @@ function Login() {
     else setIsVaildPassword(false);
     setPassword(value);
   };
+
+  useEffect(() => {
+    const savedToken = localStorage.getItem(loginTokenKey);
+    if (savedToken) {
+      return navigate('/');
+    }
+  }, []);
 
   return (
     <AuthInputForm
